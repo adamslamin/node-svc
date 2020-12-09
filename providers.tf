@@ -1,5 +1,5 @@
 provider "google" {
   version = "~> 3.37.0"
-  project = var.project_id
+  project = "healthy-rarity-289300"
   region  = "us-central1-c"
 }
