@@ -7,6 +7,7 @@ resource "google_container_cluster" "primary" {
   name               = "node-svc-k8s"
    location          = "us-central1-c"
   initial_node_count = 3
+  ACTIONS_ALLOW_UNSECURE_COMMANDS = true
 
   master_auth {
     username = ""
