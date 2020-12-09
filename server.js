@@ -1,16 +1,15 @@
 // Node-Svc. Simple microservice. Includes both Express and Fetch. Calls itself, 
-// or can be replicated and will round-robin requests among peers. #Adams Lamin 
+// or can be replicated and will round-robin requests among peers. Adams Lamin
 
 'use strict';
 
 // vary these constants according to where you are running (GCS, VMs, K8S) and how many VMs you have, if that's the lesson)
 // to do: this should be a command-line parameter that lets the app know how it is running
 //const arrNodes = [ "localhost" ]                                    // for testing on GCS
- const arrNodes = [ "10.1.1.1" ]                                      // critical to leave this for lab 03 learning
 //const arrNodes = [ "node-svc-01" ]                                  // for 1 VM
 //const arrNodes = [ "node-svc-01", "node-svc-02" ]                   // for 2 VMs
 //const arrNodes = [ "node-svc-01", "node-svc-02" , "node-svc-03" ]   // for 3 VMs
-//const arrNodes = [ process.env.NODE_SVC_PUBLIC_SERVICE_HOST  ];       //  use this for K8S
+const arrNodes = [ process.env.NODE_SVC_PUBLIC_SERVICE_HOST  ];       //  use this for K8S
 
 console.log("service host is " + arrNodes[0]);
 
@@ -175,4 +174,3 @@ function buildURL (strLevel) {
    return(strURL);
 
 }
-
