@@ -15,7 +15,7 @@ name: Build and Deploy to GKE
 on:
   push:
     branches:
-    - master
+    - 03
 
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
@@ -46,10 +46,11 @@ jobs:
     - run: npm test
 
     # Setup gcloud CLI
-    - uses: GoogleCloudPlatform/github-actions/setup-gcloud@0.1.3
+    - uses: google-github-actions/setup-gcloud@master
       with:
         service_account_key: ${{ secrets.GKE_SA_KEY }}
         project_id: ${{ secrets.GKE_PROJECT }}
+        export_default_credentials: true
 
     # Configure Docker to use the gcloud command-line tool as a credential
     # helper for authentication
